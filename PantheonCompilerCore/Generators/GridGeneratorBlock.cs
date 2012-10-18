@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
 using Pantheon.Core;
 
 namespace Pantheon.Compiler.Core.Generators
 {
-    public sealed class ButtonGeneratorBlock : GeneratorBlock
+    public class GridGeneratorBlock : GeneratorBlock
     {
+        // TODO: Need to land some changes in CSS world. Generate ID vs Classes..because Grids are unqiue..
+        // They likely wont be Stylable ..
+        // DISREGARD ^ NOT FUCKING TRUE.
+        // We need to land Strong typing in Setters. So I can do <Set Property="GridRows"><GridRow /><GridRow /><GridRow /></Set>
         public override string TransformStyle(Style style)
         {
+            // Custom CSS properties for Grid. ATM -ms- seems to be the only one. 
             var cssBuilder = new StringBuilder();
-            cssBuilder.AppendLine("display: -webkit-flex;");
-            cssBuilder.AppendLine("display: -ms-flexbox;");
-            cssBuilder.AppendLine("-ms-flex-pack: center;"); 
-            cssBuilder.AppendLine("-ms-flex-align: center;");
-            cssBuilder.AppendLine("-webkit-flex-pack: center;");
-            cssBuilder.AppendLine("-webkit-flex-align: center;"); 
+            cssBuilder.AppendLine("padding: 0px;");
+            cssBuilder.AppendLine("display: -ms-grid;");
 
             // Get our default Drawable CSS class-level properties too. 
             var cssResult = base.TransformStyle(style);
@@ -29,23 +31,20 @@ namespace Pantheon.Compiler.Core.Generators
         public override void TransformHtml(Generator generator, Drawable element, HtmlNode node)
         {
             var document = node.OwnerDocument;
-            var buttonContainer = document.CreateElement("div");
+            var gridContainer = document.CreateElement("div");
             var style = element.Style;
 
             // TODO: Move this to GeneratorBlock
             if (style != null)
-                buttonContainer.Attributes.Add(document.CreateAttribute("class", style));
+                gridContainer.Attributes.Add(document.CreateAttribute("class", style));
 
             // Add our created element to the parent.
-            node.AppendChild(buttonContainer);
+            node.AppendChild(gridContainer);
 
-            // For now we'll just add "Hello world" if a Button contains no content.
-            if (((Button)element).Text == null)
-                buttonContainer.AppendChild(document.CreateTextNode("Browse"));
-
+            
             // IMPORTANT: Unless you know better, always call this at the end. Otherwise the Content of this
             // node will NOT be turned into HTML.
-            base.TransformHtml(generator, element, buttonContainer);
+            base.TransformHtml(generator, element, gridContainer);
         }
     }
 }

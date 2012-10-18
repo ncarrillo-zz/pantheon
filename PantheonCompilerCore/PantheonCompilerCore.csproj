@@ -7,7 +7,7 @@
     <ProjectGuid>{89283A91-4030-42FD-B60C-A7235F3C38CF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PantheonCompilerCore</RootNamespace>
+    <RootNamespace>Pantheon.Compiler.Core</RootNamespace>
     <AssemblyName>PantheonCompilerCore</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -49,6 +49,7 @@
     <Compile Include="Generators\ButtonGeneratorBlock.cs" />
     <Compile Include="Generators\Generator.cs" />
     <Compile Include="Generators\GeneratorBlock.cs" />
+    <Compile Include="Generators\GridGeneratorBlock.cs" />
     <Compile Include="Generators\PageGeneratorBlock.cs" />
     <Compile Include="Generators\StackPanelGeneratorBlock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

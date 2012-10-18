@@ -22,7 +22,7 @@ namespace XamlTester
                             <Script Name='Knockout' Type='JavaScript' Uri='Knockout.js' />
                             
                             <Style Name='ButtonStyle' For='Button'>
-                                <Set Property='Background'>#333333</Set>
+                                <Set Property='Background'>#666666</Set>
                                 <Set Property='Foreground'>#FFFFFF</Set>
                             </Style>
 
@@ -92,7 +92,10 @@ namespace XamlTester
             var html = doc.CreateElement("html");
 
             g.Generate(html, page);
+            // HTML5 Doc type
+            doc.DocumentNode.AppendChild(doc.CreateComment("<!DOCTYPE html>"));
             doc.DocumentNode.AppendChild(html);
+
             doc.Save("test.htm");
 
             var cssContents = g.GenerateStyles(page);

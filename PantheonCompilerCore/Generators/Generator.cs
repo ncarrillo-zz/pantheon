@@ -48,7 +48,7 @@ namespace Pantheon.Compiler.Core.Generators
 
             // TODO: Figure out a way to have a Style apply to Page's node. 
             // Probably doable once PageGeneratorBlock is up and running.
-            cssBuilder.AppendLine("body,html { height: 100%; background-color: #CCCCCC; }");
+            cssBuilder.AppendLine("body,html { height: 100%; background-color: #CCCCCC; font-family: Segoe UI; }");
 
             // Go through all of the Page's Resources and generate the appropriate CSS
             foreach (var resource in p.Resources.Values)
