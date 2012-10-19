@@ -21,6 +21,7 @@ namespace Pantheon.Compiler.Core.Generators
             cssBuilder.AppendLine("padding: 0px;");
             cssBuilder.AppendLine("display: -ms-grid;");
 
+            cssBuilder.AppendLine("display: -webkit-flex;");
             // Get our default Drawable CSS class-level properties too. 
             var cssResult = base.TransformStyle(style);
             cssBuilder.AppendLine(cssResult);

@@ -28,11 +28,10 @@ namespace Pantheon.Compiler.Core.Generators
 
             // Some default CSS properties
             cssBuilder.AppendLine("overflow: auto;");
-
-            if (style.Setters.ContainsKey("width") || style.Setters.ContainsKey("height"))
-                cssBuilder.AppendLine("-ms-flex: 0 0 auto; -webkit-flex: 0 0 auto;");
-            else
-                cssBuilder.AppendLine("-ms-flex: 1 0 auto; -webkit-flex: 1 0 auto;");
+            cssBuilder.AppendLine("display: -webkit-flex;");
+            cssBuilder.AppendLine("display: -ms-flexbox;");
+            cssBuilder.AppendLine("-webkit-flex: 1 0 auto;");
+            cssBuilder.AppendLine("-ms-flex: 1 0 auto;");
 
             // Go through all of our Setters and transform them too.
             foreach (var set in style.Setters.Values)

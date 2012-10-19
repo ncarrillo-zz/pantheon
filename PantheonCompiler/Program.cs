@@ -24,23 +24,22 @@ namespace XamlTester
                             <Style Name='ButtonStyle' For='Button'>
                                 <Set Property='Background'>#666666</Set>
                                 <Set Property='Foreground'>#FFFFFF</Set>
+                                <Set Property='Margin'>12</Set>
                             </Style>
 
                             <Style Name='ButtonStyle2' For='Button'>
-                                <Set Property='Background'>CornflowerBlue</Set>
+                                <Set Property='Background'>#444444</Set>
                                 <Set Property='Foreground'>#FFFFFF</Set>
+                                <Set Property='Margin'>12</Set>
+                                <Set Property='Height'>200</Set>
                             </Style>
 
                             <Style Name='StackPanelStyle' For='StackPanel'>
-                                <Set Property='Width' To='200' />
-                                <Set Property='Height' To='400' />
-                                <Set Property='Orientation' To='Vertical' />
+                                <Set Property='Orientation' To='Horizontal' />
                             </Style>
 
                             <Style Name='StackPanelStyle2' For='StackPanel'>
-                                <Set Property='Width' To='400' />
-                                <Set Property='Height' To='200' />
-                                <Set Property='Orientation' To='Horizontal' />
+                                <Set Property='Orientation' To='Vertical' />
                             </Style>
 
                             <Source Name='VmSource' ViewModel='knockoutVm' />
@@ -48,11 +47,11 @@ namespace XamlTester
 
                         <StackPanel Style='StackPanelStyle'>
                             <Button Style='ButtonStyle' />
-                            <Button Style='ButtonStyle2'>
+                            <Button Style='ButtonStyle'>
                                 <StackPanel Style='StackPanelStyle2'>
-                                    <Button Style='ButtonStyle' />
                                     <Button Style='ButtonStyle2' />
-                                    <Button Style='ButtonStyle' />
+                                    <Button Style='ButtonStyle2' />
+                                    <Button Style='ButtonStyle2' />
                                 </StackPanel>
                             </Button>
                             <Button Style='ButtonStyle' />

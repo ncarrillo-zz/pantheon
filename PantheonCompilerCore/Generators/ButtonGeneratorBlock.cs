@@ -12,12 +12,8 @@ namespace Pantheon.Compiler.Core.Generators
         public override string TransformStyle(Style style)
         {
             var cssBuilder = new StringBuilder();
-            cssBuilder.AppendLine("display: -webkit-flex;");
-            cssBuilder.AppendLine("display: -ms-flexbox;");
-            cssBuilder.AppendLine("-ms-flex-pack: center;"); 
-            cssBuilder.AppendLine("-ms-flex-align: center;");
-            cssBuilder.AppendLine("-webkit-flex-pack: center;");
-            cssBuilder.AppendLine("-webkit-flex-align: center;"); 
+
+            cssBuilder.AppendLine("-webkit-align-items: center; -webkit-justify-content: center; -ms-flex-align: center; -ms-flex-pack: center;");
 
             // Get our default Drawable CSS class-level properties too. 
             var cssResult = base.TransformStyle(style);
@@ -29,7 +25,7 @@ namespace Pantheon.Compiler.Core.Generators
         public override void TransformHtml(Generator generator, Drawable element, HtmlNode node)
         {
             var document = node.OwnerDocument;
-            var buttonContainer = document.CreateElement("div");
+            var buttonContainer = document.CreateElement("a");
             var style = element.Style;
 
             // TODO: Move this to GeneratorBlock

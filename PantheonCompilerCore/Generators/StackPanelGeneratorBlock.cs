@@ -16,8 +16,6 @@ namespace Pantheon.Compiler.Core.Generators
             // TODO: Look into FlexBox stuff more, add Moz and Opera stuff.
             var cssBuilder = new StringBuilder();
             cssBuilder.AppendLine("padding: 0px;");
-            cssBuilder.AppendLine("display: -ms-flexbox;");
-            cssBuilder.AppendLine("display: -webkit-flex;");
 
             // Get our default Drawable CSS class-level properties too. 
             var cssResult = base.TransformStyle(style);
@@ -52,7 +50,7 @@ namespace Pantheon.Compiler.Core.Generators
         {
             // TODO: Flesh this out. Rather bare bones at the moment.
             var document = node.OwnerDocument;
-            var newElement = document.CreateElement("ul");
+            var newElement = document.CreateElement("div");
             var style = element.Style;
 
             // TODO: Move this to GeneratorBlock, or not, at least not for this GeneratorBlock impl.
